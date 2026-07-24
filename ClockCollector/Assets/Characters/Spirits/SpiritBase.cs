@@ -11,6 +11,8 @@ public class SpiritBase : MonoBehaviour
 
     TMP_Text statusText;
 
+    SpriteRenderer spriteRenderer;
+
     float timer = 0.0f;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -19,14 +21,7 @@ public class SpiritBase : MonoBehaviour
         currentHealth = maxHealth;
 
         statusText = gameObject.GetComponentInChildren<TMP_Text>();
-        if (statusText != null )
-        {
-            Debug.Log("UI found");
-        }
-        else
-        {
-            Debug.Log("not found");
-        }
+        spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
 
     }
 
