@@ -28,15 +28,7 @@ public class SpiritBase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
 
-        if (timer > 1)
-        {
-            timer = 0;
-            TestAction();
-            currentHealth -= 1;
-            UpdateUI();
-        }
     }
 
     void UpdateUI()
@@ -47,5 +39,11 @@ public class SpiritBase : MonoBehaviour
     void TestAction()
     {
         Debug.Log("firing move!");
+    }
+
+    public void TickDamage()
+    {
+        currentHealth -= 1;
+        UpdateUI();
     }
 }
