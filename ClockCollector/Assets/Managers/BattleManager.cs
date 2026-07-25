@@ -1,3 +1,5 @@
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BattleManager : MonoBehaviour
@@ -24,6 +26,9 @@ public class BattleManager : MonoBehaviour
 
     GameObject[] allySpirits;
     GameObject[] enemySpirits;
+
+    public CanvasGroup messageBox;
+    public GameObject messageTemplate;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -63,6 +68,37 @@ public class BattleManager : MonoBehaviour
         foreach (GameObject spirit in enemySpirits)
         {
             spirit.GetComponent<SpiritBase>().TickDamage();
+        }
+    }
+
+    public void DisplayStatusMessage(string message)
+    {
+        GameObject newMessage = Instantiate(messageTemplate, messageBox.transform);
+
+        newMessage.GetComponent<TMP_Text>().text = message;
+    }
+
+    public void ClearAllySelection(GameObject newSelected)
+    {
+        foreach (GameObject spirit in allySpirits)
+        {
+            SpiritBase spiritComp = spirit.GetComponent<SpiritBase>();
+            if (spirit != newSelected && spiritComp.selected)
+            {
+                spiritComp.ClearSelection();
+            }
+        }
+    }
+
+    public void ClearEnemySelection(GameObject newSelected)
+    {
+        foreach (GameObject spirit in enemySpirits)
+        {
+            SpiritBase spiritComp = spirit.GetComponent<SpiritBase>();
+            if (spirit != newSelected && spiritComp.targeted)
+            {
+                spiritComp.ClearSelection();
+            }
         }
     }
 }

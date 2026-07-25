@@ -5,15 +5,15 @@ public class PunchAction : ActionBase
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void Start()
     {
-        
+        base.Start();
     }
 
     // Update is called once per frame
-    void Update()
+    public override void Update()
     {
-        
+        base.Update();
     }
 
     public override void ActionTriggered(GameObject Target)
@@ -21,5 +21,8 @@ public class PunchAction : ActionBase
         SpiritBase targetComponent = Target.GetComponent<SpiritBase>();
 
         targetComponent.TakeDamage(5);
+
+
+        base.ActionTriggered(Target);
     }
 }
