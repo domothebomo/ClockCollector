@@ -22,6 +22,7 @@ public class PunchAction : ActionBase
 
         targetComponent.TakeDamage(5);
 
+
         base.ActionTriggered(Target);
     }
 }

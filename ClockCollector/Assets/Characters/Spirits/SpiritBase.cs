@@ -12,6 +12,8 @@ public class SpiritBase : MonoBehaviour
     [SerializeField] int maxHealth = 100;
     int currentHealth;
 
+    [SerializeField] string displayName;
+
     [SerializeField] GameObject[] startingActions;
     List<GameObject> knownActions = new List<GameObject>();
 
@@ -174,6 +176,10 @@ public class SpiritBase : MonoBehaviour
         UpdateActionUI();
 
         actionComp.ActionTriggered(PlayerManager.Instance.getTarget());
+
+        string statusMessage = displayName + " used " + actionComp.actionName + " on " + PlayerManager.Instance.getTarget().GetComponent<SpiritBase>().displayName;
+
+        BattleManager.Instance.DisplayStatusMessage(statusMessage);
 
         Debug.Log("firing move!");
     }
