@@ -280,6 +280,11 @@ public class SpiritBase : MonoBehaviour
 
         if (gameObject.tag == "EnemySpirit")
         {
+            if (PlayerManager.Instance.getTarget() == gameObject)
+            {
+                PlayerManager.Instance.clearTarget();
+            }
+
             BattleManager.Instance.CheckEnemiesDefeated();
         }
     }

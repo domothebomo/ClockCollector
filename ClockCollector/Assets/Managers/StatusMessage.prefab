@@ -152,4 +152,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 151e5575faaaeff4e8627bb95556ab77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StatusMessage
-  lifeSpan: 3
+  lifeSpan: 2
