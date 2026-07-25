@@ -35,8 +35,10 @@ public class SpiritBase : MonoBehaviour
     public bool targeted = false;
 
     bool cooldownActive = false;
-    float currentCooldown = 2.0f;
+    float currentCooldown = 5.0f;
     float cooldownTimer = 0.0f;
+
+    bool defeated = false;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -49,18 +51,20 @@ public class SpiritBase : MonoBehaviour
         foreach (GameObject action in startingActions)
         {
             LearnAction(action);
-        }    
+        }
+        
+        if (gameObject.tag == "EnemySpirit")
+        {
+            currentCooldown = Random.Range(2, 6);
+            cooldownActive = true;
+        }
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (currentHealth == 95 && gameObject.tag != "EnemySpirit" && knownActions.Count != 0 && trigger == false)
-        {
-            //UseAction(knownActions[0], GameObject.FindGameObjectWithTag("EnemySpirit"));
-            trigger = true;
-        }
+        if (defeated) { return; }
 
         if (cooldownActive)
         {
@@ -71,6 +75,11 @@ public class SpiritBase : MonoBehaviour
                 cooldownTimer = 0.0f;
                 UpdateActionUI();
             }
+        }
+
+        if (gameObject.tag == "EnemySpirit" && !cooldownActive)
+        {
+            SelectEnemyAction();
         }
     }
 
@@ -92,7 +101,7 @@ public class SpiritBase : MonoBehaviour
             if (selected)
             {
                 actionButton.SetActive(true);
-                actionButton.GetComponentInChildren<TMP_Text>().text = knownActions[i].GetComponent<PunchAction>().actionName;
+                actionButton.GetComponentInChildren<TMP_Text>().text = knownActions[i].GetComponent<ActionBase>().actionName;
 
                 if (OnCooldown())
                 {
@@ -123,6 +132,12 @@ public class SpiritBase : MonoBehaviour
         if (selected || targeted)
         {
             ClearSelection();
+
+            if (gameObject.tag == "EnemySpirit")
+            {
+                PlayerManager.Instance.clearTarget();
+            }
+
             return;
         }
 
@@ -159,7 +174,25 @@ public class SpiritBase : MonoBehaviour
         UpdateActionUI();
     }
 
-    public void UseAction(int actionIndex)
+    void SelectEnemyAction()
+    {
+        int actionIndex = Random.Range(0, knownActions.Count);
+
+        int targetIndex = Random.Range(0, BattleManager.Instance.GetAllySpirits().Length);
+
+        GameObject target = BattleManager.Instance.GetAllySpirits()[targetIndex];
+
+        //ActionBase actionComp = knownActions[actionIndex].GetComponent<ActionBase>();
+
+        UseAction(actionIndex, target);
+    }
+
+    public void SelectPlayerAction(int actionIndex)
+    {
+        UseAction(actionIndex, PlayerManager.Instance.getTarget());
+    }
+
+    void UseAction(int actionIndex, GameObject target)
     {
         //action.GetComponent<ActionBase>().ActionTriggered(target);
 
@@ -167,7 +200,11 @@ public class SpiritBase : MonoBehaviour
 
         if (actionComp.OnCooldown())
         {
-            Debug.Log("on cooldown asshole");
+            return;
+        }
+
+        if (actionComp.requiresTarget && target == null)
+        {
             return;
         }
 
@@ -175,10 +212,17 @@ public class SpiritBase : MonoBehaviour
         currentCooldown = actionComp.actionCooldown;
         UpdateActionUI();
 
-        actionComp.ActionTriggered(PlayerManager.Instance.getTarget());
+        actionComp.ActionTriggered(target);
 
-        string statusMessage = displayName + " used " + actionComp.actionName + " on " + PlayerManager.Instance.getTarget().GetComponent<SpiritBase>().displayName;
-
+        string statusMessage;
+        if (actionComp.requiresTarget)
+        {
+            statusMessage = displayName + " used " + actionComp.actionName + " on " + target.GetComponent<SpiritBase>().displayName;
+        }
+        else
+        {
+            statusMessage = displayName + " used " + actionComp.actionName;
+        }
         BattleManager.Instance.DisplayStatusMessage(statusMessage);
 
         Debug.Log("firing move!");
@@ -192,12 +236,33 @@ public class SpiritBase : MonoBehaviour
     public void TickDamage()
     {
         currentHealth -= 1;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+
+        if (currentHealth <= 0)
+        {
+            defeated = true;
+        }
+
         UpdateUI();
     }
 
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+
+        if (currentHealth <= 0)
+        {
+            defeated = true;
+        }
+
+        UpdateUI();
+    }
+
+    public void HealDamage(int damage)
+    {
+        currentHealth += damage;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         UpdateUI();
     }
 }

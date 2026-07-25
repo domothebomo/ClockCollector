@@ -37,5 +37,7 @@ public class PlayerManager : MonoBehaviour
         targetedEnemy = target;
     }
 
+    public void clearTarget() { targetedEnemy = null; }
+
     public GameObject getTarget() { return targetedEnemy; }
 }

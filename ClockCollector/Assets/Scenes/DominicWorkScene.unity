@@ -333,6 +333,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4433613116177186794, guid: 0c5fcffe6c94c16478cf922f9c23fd0c, type: 3}
+      propertyPath: displayName
+      value: Rolex
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433613116177186794, guid: 0c5fcffe6c94c16478cf922f9c23fd0c, type: 3}
+      propertyPath: startingActions.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433613116177186794, guid: 0c5fcffe6c94c16478cf922f9c23fd0c, type: 3}
+      propertyPath: 'startingActions.Array.data[0]'
+      value: 
+      objectReference: {fileID: 4722350220438455038, guid: 42891be21bcd1b743a92c432c19d618d, type: 3}
+    - target: {fileID: 4433613116177186794, guid: 0c5fcffe6c94c16478cf922f9c23fd0c, type: 3}
+      propertyPath: 'startingActions.Array.data[1]'
+      value: 
+      objectReference: {fileID: 4422869876569352395, guid: a781920909ba3df41a22929170e910e6, type: 3}
     - target: {fileID: 5759285358740349040, guid: 0c5fcffe6c94c16478cf922f9c23fd0c, type: 3}
       propertyPath: m_Name
       value: SpiritBase (1)
@@ -589,6 +605,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4433613116177186794, guid: 0c5fcffe6c94c16478cf922f9c23fd0c, type: 3}
+      propertyPath: displayName
+      value: Alarm Clock
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433613116177186794, guid: 0c5fcffe6c94c16478cf922f9c23fd0c, type: 3}
       propertyPath: enemyColor.a
       value: 1
       objectReference: {fileID: 0}
@@ -627,7 +647,7 @@ PrefabInstance:
     - target: {fileID: 4433613116177186794, guid: 0c5fcffe6c94c16478cf922f9c23fd0c, type: 3}
       propertyPath: 'startingActions.Array.data[1]'
       value: 
-      objectReference: {fileID: 4722350220438455038, guid: 42891be21bcd1b743a92c432c19d618d, type: 3}
+      objectReference: {fileID: 4422869876569352395, guid: a781920909ba3df41a22929170e910e6, type: 3}
     - target: {fileID: 5759285358740349040, guid: 0c5fcffe6c94c16478cf922f9c23fd0c, type: 3}
       propertyPath: m_Name
       value: SpiritBase
@@ -911,6 +931,14 @@ PrefabInstance:
       propertyPath: displayName
       value: Broken Clock
       objectReference: {fileID: 0}
+    - target: {fileID: 4433613116177186794, guid: 0c5fcffe6c94c16478cf922f9c23fd0c, type: 3}
+      propertyPath: startingActions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433613116177186794, guid: 0c5fcffe6c94c16478cf922f9c23fd0c, type: 3}
+      propertyPath: 'startingActions.Array.data[0]'
+      value: 
+      objectReference: {fileID: 4722350220438455038, guid: 42891be21bcd1b743a92c432c19d618d, type: 3}
     - target: {fileID: 5759285358740349040, guid: 0c5fcffe6c94c16478cf922f9c23fd0c, type: 3}
       propertyPath: m_Name
       value: SpiritBase (4)
@@ -1312,6 +1340,10 @@ PrefabInstance:
     - target: {fileID: 3735718900307200786, guid: 0c5fcffe6c94c16478cf922f9c23fd0c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433613116177186794, guid: 0c5fcffe6c94c16478cf922f9c23fd0c, type: 3}
+      propertyPath: displayName
+      value: Sundial
       objectReference: {fileID: 0}
     - target: {fileID: 4433613116177186794, guid: 0c5fcffe6c94c16478cf922f9c23fd0c, type: 3}
       propertyPath: knownActions.Array.size

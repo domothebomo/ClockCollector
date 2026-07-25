@@ -101,4 +101,9 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
+
+    public GameObject[] GetAllySpirits()
+    {
+        return allySpirits;
+    }
 }

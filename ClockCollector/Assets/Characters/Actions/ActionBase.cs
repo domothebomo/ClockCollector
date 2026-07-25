@@ -9,6 +9,8 @@ public class ActionBase : MonoBehaviour
     public float actionCooldown = 2.0f;
     float cooldownTimer = 0.0f;
     bool cooldownActive = false;
+
+    public bool requiresTarget = true;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public virtual void Start()
