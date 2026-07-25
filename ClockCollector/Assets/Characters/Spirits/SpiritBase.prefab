@@ -438,6 +438,7 @@ MonoBehaviour:
   selectColor: {r: 0.9622642, g: 0.9151314, b: 0.49474904, a: 1}
   enemyColor: {r: 0.5792713, g: 0.3329477, b: 0.8113208, a: 1}
   targetColor: {r: 0.9150943, g: 0.3496351, b: 0.3496351, a: 1}
+  defeatColor: {r: 0.3207547, g: 0.3207547, b: 0.3207547, a: 1}
   selected: 0
   targeted: 0
 --- !u!212 &1838350670959202152

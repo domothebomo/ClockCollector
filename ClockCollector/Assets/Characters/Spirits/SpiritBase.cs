@@ -26,6 +26,7 @@ public class SpiritBase : MonoBehaviour
     [SerializeField] Color selectColor;
     [SerializeField] Color enemyColor;
     [SerializeField] Color targetColor;
+    [SerializeField] Color defeatColor;
 
     bool trigger = false;
 
@@ -129,6 +130,8 @@ public class SpiritBase : MonoBehaviour
 
     public void SelectSpirit()
     {
+        if (defeated) { return; }
+
         if (selected || targeted)
         {
             ClearSelection();
@@ -162,7 +165,11 @@ public class SpiritBase : MonoBehaviour
         selected = false;
         targeted = false;
 
-        if (gameObject.tag == "EnemySpirit")
+        if (defeated) 
+        { 
+            spriteRenderer.color = defeatColor;
+        }
+        else if (gameObject.tag == "EnemySpirit")
         {
             spriteRenderer.color = enemyColor;
         }
@@ -240,7 +247,7 @@ public class SpiritBase : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            defeated = true;
+            Die();
         }
 
         UpdateUI();
@@ -253,7 +260,7 @@ public class SpiritBase : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            defeated = true;
+            Die();
         }
 
         UpdateUI();
@@ -265,4 +272,18 @@ public class SpiritBase : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         UpdateUI();
     }
+
+    void Die()
+    {
+        defeated = true;
+        spriteRenderer.color = defeatColor;
+
+        if (gameObject.tag == "EnemySpirit")
+        {
+            BattleManager.Instance.CheckEnemiesDefeated();
+        }
+    }
+
+    public bool IsDefeated() { return defeated; }
+
 }
