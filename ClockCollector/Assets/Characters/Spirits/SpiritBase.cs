@@ -28,6 +28,10 @@ public class SpiritBase : MonoBehaviour
     [SerializeField] Color targetColor;
     [SerializeField] Color defeatColor;
 
+    [SerializeField] GameObject cooldownMeter;
+    [SerializeField] Image meterFill;
+
+
     bool trigger = false;
 
     float timer = 0.0f;
@@ -58,6 +62,8 @@ public class SpiritBase : MonoBehaviour
         {
             currentCooldown = Random.Range(2, 6);
             cooldownActive = true;
+            cooldownMeter.SetActive(true);
+            UpdateEnemySprite();
         }
 
     }
@@ -70,10 +76,13 @@ public class SpiritBase : MonoBehaviour
         if (cooldownActive)
         {
             cooldownTimer += Time.deltaTime;
+            meterFill.fillAmount = cooldownTimer / currentCooldown;
+
             if (cooldownTimer >= currentCooldown)
             {
                 cooldownActive = false;
                 cooldownTimer = 0.0f;
+                cooldownMeter.SetActive(false);
                 UpdateActionUI();
             }
         }
@@ -82,6 +91,12 @@ public class SpiritBase : MonoBehaviour
         {
             SelectEnemyAction();
         }
+    }
+
+    void UpdateEnemySprite()
+    {
+        spriteRenderer.flipX = true;
+        cooldownMeter.transform.localPosition = new Vector3(-90.0f,  -150.0f, 0.0f);
     }
 
     void UpdateUI()
@@ -216,6 +231,7 @@ public class SpiritBase : MonoBehaviour
         }
 
         cooldownActive = true;
+        cooldownMeter.SetActive(true);
         currentCooldown = actionComp.actionCooldown;
         UpdateActionUI();
 
