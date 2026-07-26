@@ -1332,6 +1332,7 @@ GameObject:
   - component: {fileID: 1838350670959202152}
   - component: {fileID: 6381660731736309780}
   - component: {fileID: 8556742430082939689}
+  - component: {fileID: -8759850024811645689}
   m_Layer: 0
   m_Name: SpiritBase
   m_TagString: Untagged
@@ -1376,6 +1377,7 @@ MonoBehaviour:
   displayName: Spirit
   abilityDescription: A generic spirit. No outstanding qualities.
   startingActions: []
+  abilityComp: {fileID: -8759850024811645689}
   statusText: {fileID: 2179391634110299375}
   shieldText: {fileID: 1205099206551862251}
   powerIcon: {fileID: 6600771197370657380}
@@ -1395,6 +1397,7 @@ MonoBehaviour:
   ra: {fileID: 1368099567423241804}
   selected: 0
   targeted: 0
+  currentCooldown: 5
 --- !u!212 &1838350670959202152
 SpriteRenderer:
   serializedVersion: 3
@@ -1509,6 +1512,25 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.34375, y: 2.34375}
   m_EdgeRadius: 0
+--- !u!114 &-8759850024811645689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5759285358740349040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd3f85ffcd3a3d34083d8c448c7f059c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AbilityBase
+  ownedSpirit: {fileID: 5759285358740349040}
+  spriteComp: {fileID: 1838350670959202152}
+  modifiedCooldown: 0
+  modifiedPotency: 0
+  modifiedTriggers: 0
+  bypassShields: 0
+  splitActions: 0
 --- !u!1 &6314567960407080711
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,11 +19,19 @@ public class HealAction : ActionBase
     public override void ActionTriggered(GameObject Target)
     {
         SpiritBase ownerComp = transform.parent.gameObject.GetComponent<SpiritBase>();
-        if (targetType == TargetType.SingleTarget)
+
+        int healStrength = potency;
+        ownerComp.abilityComp.ActionUseTrigger(gameObject);
+        if (ownerComp.abilityComp.modifiedPotency != -1)
         {
-            ownerComp.HealDamage(potency);
+            healStrength = ownerComp.abilityComp.modifiedPotency;
         }
-        else if (targetType == TargetType.AreaOfEffect)
+
+        if (targetType == TargetType.SingleTarget && !ownerComp.abilityComp.splitActions)
+        {
+            ownerComp.HealDamage(healStrength);
+        }
+        else
         {
             GameObject[] Spirits;
             if (ownerComp.CompareTag("AllySpirit"))
@@ -36,7 +44,7 @@ public class HealAction : ActionBase
             }
             foreach (GameObject spirit in Spirits)
             {
-                spirit.GetComponent<SpiritBase>().HealDamage(potency);
+                spirit.GetComponent<SpiritBase>().HealDamage(healStrength);
             }
         }
 

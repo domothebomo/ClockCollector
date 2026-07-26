@@ -1,0 +1,48 @@
+using UnityEngine;
+
+public class SundialAbility : AbilityBase
+{
+
+    
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public override void ActionUseTrigger(GameObject action)
+    {
+        modifiedCooldown = -1;
+        modifiedTriggers = -1;
+
+        splitActions = true;
+        modifiedPotency = (int) (action.GetComponent<ActionBase>().potency * 0.6);
+    }
+
+    public override void TimeTrigger(GameObject action)
+    {
+        base.TimeTrigger(action);
+    }
+
+    public override void ReceiveHealthTrigger()
+    {
+        base.ReceiveHealthTrigger();
+    }
+
+    public override void DamagedTrigger(GameObject attacker)
+    {
+        base.DamagedTrigger(attacker);
+    }
+
+    public override void ReceiveShieldTrigger()
+    {
+        base.ReceiveShieldTrigger();
+    }
+
+}

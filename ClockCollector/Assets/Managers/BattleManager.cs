@@ -245,6 +245,8 @@ public class BattleManager : MonoBehaviour
 
         if (!victory)
         {
+            DestroyEnemies();
+            DestroyAllies();
             gameOverScreen.SetActive(true);
             return;
         }
@@ -257,13 +259,30 @@ public class BattleManager : MonoBehaviour
         else
         {
             wave++;
+            HealParty();
             PlayerManager.Instance.OpenUnlockScreen();
         }
-    }  
+    }
+
+    void HealParty()
+    {
+        foreach(GameObject spirit in allySpirits)
+        {
+            spirit.GetComponent<SpiritBase>().HealDamage(1000);
+        }
+    }
 
     void DestroyEnemies()
     {
         foreach(GameObject enemy in enemySpirits)
+        {
+            Destroy(enemy);
+        }
+    }
+
+    void DestroyAllies()
+    {
+        foreach (GameObject enemy in allySpirits)
         {
             Destroy(enemy);
         }

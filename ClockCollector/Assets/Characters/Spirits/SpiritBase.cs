@@ -23,6 +23,8 @@ public class SpiritBase : MonoBehaviour
     [SerializeField] GameObject[] startingActions;
     List<GameObject> knownActions = new List<GameObject>();
 
+    public AbilityBase abilityComp;
+
     public TMP_Text statusText;
     public TMP_Text shieldText;
 
@@ -54,7 +56,7 @@ public class SpiritBase : MonoBehaviour
     public bool targeted = false;
 
     bool cooldownActive = false;
-    float currentCooldown = 5.0f;
+    public float currentCooldown = 5.0f;
     float cooldownTimer = 0.0f;
 
     bool defeated = false;
@@ -321,10 +323,22 @@ public class SpiritBase : MonoBehaviour
         cooldownMeter.SetActive(true);
         currentCooldown = actionComp.actionCooldown;
         UpdateActionUI();
-        
+
+        abilityComp.ActionUseTrigger(actionComp.gameObject);
+
+        if (abilityComp.modifiedCooldown != -1)
+        {
+            currentCooldown = abilityComp.modifiedCooldown;
+        }
+        int triggers = actionComp.triggers;
+        if (abilityComp.modifiedTriggers != -1)
+        {
+            triggers = abilityComp.modifiedTriggers;
+        }
+
         GameObject finalTarget = DetermineTarget(actionComp, target);
 
-        for (int i = 0; i < actionComp.triggers; i++)
+        for (int i = 0; i < triggers; i++)
         {
 
             actionComp.ActionTriggered(finalTarget);

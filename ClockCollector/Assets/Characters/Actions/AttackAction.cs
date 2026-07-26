@@ -17,15 +17,20 @@ public class AttackAction : ActionBase
     public override void ActionTriggered(GameObject Target)
     {
         SpiritBase ownerComp = transform.parent.gameObject.GetComponent<SpiritBase>();
-
         int damage = potency + ownerComp.GetPowerStacks();
 
-        if (targetType == TargetType.SingleTarget)
+        ownerComp.abilityComp.ActionUseTrigger(gameObject);
+        if (ownerComp.abilityComp.modifiedPotency != -1)
+        {
+            damage = ownerComp.abilityComp.modifiedPotency;
+        }
+
+        if (targetType == TargetType.SingleTarget && !ownerComp.abilityComp.splitActions)
         {
             SpiritBase targetComponent = Target.GetComponent<SpiritBase>();
             targetComponent.TakeDamage(damage);
         }
-        else if (targetType == TargetType.AreaOfEffect)
+        else
         {
             GameObject[] Spirits;
             if (ownerComp.CompareTag("AllySpirit"))

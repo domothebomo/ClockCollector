@@ -19,11 +19,19 @@ public class ShieldAction : ActionBase
     public override void ActionTriggered(GameObject Target)
     {
         SpiritBase ownerComp = transform.parent.gameObject.GetComponent<SpiritBase>();
-        if (targetType == TargetType.SingleTarget)
+
+        int shieldStrength = potency;
+        ownerComp.abilityComp.ActionUseTrigger(gameObject);
+        if (ownerComp.abilityComp.modifiedPotency != -1)
         {
-            ownerComp.AddShield(potency);
+            shieldStrength = ownerComp.abilityComp.modifiedPotency;
         }
-        else if (targetType == TargetType.AreaOfEffect)
+
+        if (targetType == TargetType.SingleTarget && !ownerComp.abilityComp.splitActions)
+        {
+            ownerComp.AddShield(shieldStrength);
+        }
+        else
         {
             GameObject[] Spirits;
             if (ownerComp.CompareTag("AllySpirit"))
@@ -36,7 +44,7 @@ public class ShieldAction : ActionBase
             }
             foreach (GameObject spirit in Spirits)
             {
-                spirit.GetComponent<SpiritBase>().AddShield(potency);
+                spirit.GetComponent<SpiritBase>().AddShield(shieldStrength);
             }
         }
 
