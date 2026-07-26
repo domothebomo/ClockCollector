@@ -1,6 +1,7 @@
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BattleManager : MonoBehaviour
 {
@@ -27,17 +28,28 @@ public class BattleManager : MonoBehaviour
     GameObject[] allySpirits;
     GameObject[] enemySpirits;
 
+    public int wave = 0;
+
     public GameObject[] spiritPool;
     public GameObject[] actionPool;
+    public GameObject[] attackPool;
+    public GameObject bossSpirit;
+
+    public GameObject[] enemySpawns;
+    public GameObject[] allySpawns;
 
     public CanvasGroup messageBox;
     public GameObject messageTemplate;
+
+    public GameObject progressButton;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         DontDestroyOnLoad(this);
-        StartBattle();
+        //PrepareBattle();
+        messageBox.gameObject.SetActive(false);
+        ToggleButtonHidden(true);
     }
 
     // Update is called once per frame
@@ -54,17 +66,79 @@ public class BattleManager : MonoBehaviour
         }
     }
     
-    void PrepareBattle()
+    public void PrepareBattle()
     {
+        ToggleButtonHidden(true);
 
+        int enemyCount = 1;
+        int moveCount = 2;
+        bool spawnBoss = false;
+
+        if (wave == 1)
+        {
+            enemyCount = 2;
+        } else if (wave == 2)
+        {
+            enemyCount = 3;
+        } else if (wave == 3)
+        {
+            enemyCount = 3;
+            spawnBoss = true;
+        }
+
+        enemySpirits = new GameObject[enemyCount];
+
+        for (int i = 0; i < enemyCount; i++)
+        {
+            GameObject newEnemy;
+            
+            if (i == 2 && spawnBoss)
+            {
+                newEnemy = Instantiate(bossSpirit);
+            }
+            else
+            {
+                int spawnIndex = Random.Range(0, spiritPool.Length);
+                newEnemy = Instantiate(spiritPool[spawnIndex]);
+            }
+
+            newEnemy.transform.position = enemySpawns[i].transform.position;
+
+            for (int j = 0; j < moveCount; j++)
+            {
+                int actionIndex;
+                if (j == 0)
+                {
+                    actionIndex = Random.Range(0, attackPool.Length);
+                    newEnemy.GetComponent<SpiritBase>().LearnAction(attackPool[actionIndex]);
+                }
+                else
+                {
+                    actionIndex = Random.Range(0, actionPool.Length);
+                    newEnemy.GetComponent<SpiritBase>().LearnAction(actionPool[actionIndex]);
+                }
+            }
+
+            newEnemy.GetComponent<SpiritBase>().InitializeEnemy();
+            //enemySpirits[i] = newEnemy;
+
+        }
+
+        StartBattle();
     }
 
     void StartBattle()
     {
+        messageBox.gameObject.SetActive(true);
         battleActive = true;
 
         allySpirits = GameObject.FindGameObjectsWithTag("AllySpirit");
         enemySpirits = GameObject.FindGameObjectsWithTag("EnemySpirit");
+    }
+
+    public void ToggleButtonHidden(bool hidden)
+    {
+        progressButton.SetActive(!hidden);
     }
 
     void TickDown()
@@ -110,6 +184,16 @@ public class BattleManager : MonoBehaviour
         }
     }
 
+    public void UpdateAllySpirits()
+    {
+        allySpirits = GameObject.FindGameObjectsWithTag("AllySpirit");
+    }
+
+    public void UpdateEnemySpirits()
+    {
+        enemySpirits = GameObject.FindGameObjectsWithTag("EnemySpirit");
+    }
+
     public GameObject[] GetAllySpirits()
     {
         return allySpirits;
@@ -130,6 +214,25 @@ public class BattleManager : MonoBehaviour
             }
         }
 
-        battleActive = false;
+        EndBattle(true);
     }
+
+    public void EndBattle(bool victory)
+    {
+
+        ClearAllySelection(null);
+        ClearEnemySelection(null);
+
+        battleActive = false;
+
+        messageBox.gameObject.SetActive(false);
+
+        if (!victory)
+        {
+
+        }
+
+        wave++;
+        PlayerManager.Instance.OpenUnlockScreen();
+    }    
 }

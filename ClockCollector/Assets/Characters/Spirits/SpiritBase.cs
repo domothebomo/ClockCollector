@@ -31,7 +31,7 @@ public class SpiritBase : MonoBehaviour
     public GameObject blockIcon;
     public TMP_Text blockCount;
 
-    SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer;
 
     [SerializeField] GameObject[] actionButtons;
 
@@ -56,13 +56,15 @@ public class SpiritBase : MonoBehaviour
     float cooldownTimer = 0.0f;
 
     bool defeated = false;
+
+    bool recruitable = false;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         currentHealth = maxHealth;
 
-        spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
+        //spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
 
         foreach (GameObject action in startingActions)
         {
@@ -198,9 +200,22 @@ public class SpiritBase : MonoBehaviour
         return knownActions[actionIndex];
     }
 
+    public List<GameObject> GetKnownActions()
+    {
+        return knownActions;
+    }
+
     public void SelectSpirit()
     {
         if (defeated) { return; }
+
+        if (recruitable)
+        {
+            ToggleUIHidden(false);
+            recruitable = false;
+            PlayerManager.Instance.RecruitSpirit(gameObject);
+            return;
+        }
 
         if (selected || targeted)
         {
@@ -435,6 +450,25 @@ public class SpiritBase : MonoBehaviour
     public int GetBlockStacks()
     {
         return blockStacks;
+    }
+
+    public void EnableRecruiting()
+    {
+        recruitable = true;
+        ToggleUIHidden(true);
+        Debug.Log(recruitable);
+    }
+
+    public void ToggleUIHidden(bool hidden)
+    {
+        if (hidden)
+        {
+            statusText.gameObject.SetActive(false);
+        }
+        else
+        {
+            statusText.gameObject.SetActive(true);
+        }
     }
 
     void Die()

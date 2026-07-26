@@ -789,7 +789,7 @@ GameObject:
   - component: {fileID: 8556742430082939689}
   m_Layer: 0
   m_Name: SpiritBase
-  m_TagString: AllySpirit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -836,11 +836,12 @@ MonoBehaviour:
   powerCount: {fileID: 5630507238688490191}
   blockIcon: {fileID: 1916724992718494760}
   blockCount: {fileID: 6256058819180857696}
+  spriteRenderer: {fileID: 1838350670959202152}
   actionButtons:
   - {fileID: 5795143749130618393}
   - {fileID: 2390814501682602184}
   selectColor: {r: 0.9622642, g: 0.9151314, b: 0.49474904, a: 1}
-  enemyColor: {r: 0.5792713, g: 0.3329477, b: 0.8113208, a: 1}
+  enemyColor: {r: 0.77885383, g: 0.5729352, b: 0.9716981, a: 1}
   targetColor: {r: 0.9150943, g: 0.3496351, b: 0.3496351, a: 1}
   defeatColor: {r: 0.3207547, g: 0.3207547, b: 0.3207547, a: 1}
   cooldownMeter: {fileID: 5201680272173914005}
@@ -894,7 +895,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: -5145002557681046059, guid: 109fa80588cb22a49831d24667b5a517, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1280,6 +1281,22 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5759285358740349040}
     - target: {fileID: 3844032041496128245, guid: bb97ec3333649e745b69b416d33efe3a, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844032041496128245, guid: bb97ec3333649e745b69b416d33efe3a, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.a
+      value: 0.23921569
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844032041496128245, guid: bb97ec3333649e745b69b416d33efe3a, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.g
+      value: 0.21960784
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844032041496128245, guid: bb97ec3333649e745b69b416d33efe3a, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.r
+      value: 0.36862746
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844032041496128245, guid: bb97ec3333649e745b69b416d33efe3a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4433613116177186794}
@@ -1362,6 +1379,30 @@ PrefabInstance:
     - target: {fileID: 4930481828587829115, guid: bb97ec3333649e745b69b416d33efe3a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 13.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 6571923037317073440, guid: bb97ec3333649e745b69b416d33efe3a, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6571923037317073440, guid: bb97ec3333649e745b69b416d33efe3a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f01b074825d552a4984b1e7887f7a415, type: 3}
+    - target: {fileID: 6571923037317073440, guid: bb97ec3333649e745b69b416d33efe3a, type: 3}
+      propertyPath: m_Color.a
+      value: 0.36078432
+      objectReference: {fileID: 0}
+    - target: {fileID: 6571923037317073440, guid: bb97ec3333649e745b69b416d33efe3a, type: 3}
+      propertyPath: m_Color.b
+      value: 0.5499174
+      objectReference: {fileID: 0}
+    - target: {fileID: 6571923037317073440, guid: bb97ec3333649e745b69b416d33efe3a, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6571923037317073440, guid: bb97ec3333649e745b69b416d33efe3a, type: 3}
+      propertyPath: m_Color.r
+      value: 0.5330188
       objectReference: {fileID: 0}
     - target: {fileID: 9154358468095652244, guid: bb97ec3333649e745b69b416d33efe3a, type: 3}
       propertyPath: m_Name
@@ -1509,6 +1550,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5759285358740349040}
     - target: {fileID: 3844032041496128245, guid: bb97ec3333649e745b69b416d33efe3a, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.a
+      value: 0.23921569
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844032041496128245, guid: bb97ec3333649e745b69b416d33efe3a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4433613116177186794}
@@ -1599,6 +1644,26 @@ PrefabInstance:
     - target: {fileID: 4930481828587829115, guid: bb97ec3333649e745b69b416d33efe3a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 4.076
+      objectReference: {fileID: 0}
+    - target: {fileID: 6571923037317073440, guid: bb97ec3333649e745b69b416d33efe3a, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6571923037317073440, guid: bb97ec3333649e745b69b416d33efe3a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f01b074825d552a4984b1e7887f7a415, type: 3}
+    - target: {fileID: 6571923037317073440, guid: bb97ec3333649e745b69b416d33efe3a, type: 3}
+      propertyPath: m_Color.a
+      value: 0.36078432
+      objectReference: {fileID: 0}
+    - target: {fileID: 6571923037317073440, guid: bb97ec3333649e745b69b416d33efe3a, type: 3}
+      propertyPath: m_Color.b
+      value: 0.54901963
+      objectReference: {fileID: 0}
+    - target: {fileID: 6571923037317073440, guid: bb97ec3333649e745b69b416d33efe3a, type: 3}
+      propertyPath: m_Color.r
+      value: 0.53333336
       objectReference: {fileID: 0}
     - target: {fileID: 9154358468095652244, guid: bb97ec3333649e745b69b416d33efe3a, type: 3}
       propertyPath: m_Name

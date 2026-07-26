@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 515985147e9ab4e48b1ea3de2ace9c82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Rewind
-  actionName: Rewind
+  actionName: Emergency Button
   actionDescription: Heal yourself.
   actionCooldown: 10
   requiresTarget: 0

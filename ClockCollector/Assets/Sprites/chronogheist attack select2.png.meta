@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 052981bca8fd45a43826a2a1a10ca94f
+guid: f01b074825d552a4984b1e7887f7a415
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8268908493104688095
-    second: chronogheist attack select_0
+      213: -822832563635683286
+    second: chronogheist attack select2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -48,11 +48,11 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 64
-  spriteBorder: {x: 0, y: 47, z: 0, w: 47}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: chronogheist attack select_0
+      name: chronogheist attack select2_0
       rect:
         serializedVersion: 2
         x: 1
-        y: 45
+        y: 0
         width: 129
         height: 38
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 124d84c398fee3d80800000000000000
-      internalID: -8268908493104688095
+      spriteID: a200fd69426b494f0800000000000000
+      internalID: -822832563635683286
       vertices: []
       indices: 
       edges: []
@@ -139,7 +139,7 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      chronogheist attack select_0: -8268908493104688095
+      chronogheist attack select2_0: -822832563635683286
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
