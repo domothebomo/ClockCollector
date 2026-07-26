@@ -43,6 +43,8 @@ public class SpiritBase : MonoBehaviour
     [SerializeField] GameObject cooldownMeter;
     [SerializeField] Image meterFill;
 
+    [SerializeField] RandomAudio ra;
+
 
     bool trigger = false;
 
@@ -302,6 +304,19 @@ public class SpiritBase : MonoBehaviour
             return;
         }
 
+        if (actionComp.actionType == ActionBase.ActionType.Attack)
+        {
+            ra.AttackSFX();
+        }
+        else if (actionComp.statusEffect == ActionBase.StatusEffect.Heal)
+        {
+            ra.RewindSFX();
+        }
+        else
+        {
+            ra.BuffSFX();
+        }
+
         cooldownActive = true;
         cooldownMeter.SetActive(true);
         currentCooldown = actionComp.actionCooldown;
@@ -475,6 +490,11 @@ public class SpiritBase : MonoBehaviour
 
     void Die()
     {
+        if (!defeated)
+        {
+            ra.DeathSFX();
+        }
+
         ClearSelection();
 
         defeated = true;
