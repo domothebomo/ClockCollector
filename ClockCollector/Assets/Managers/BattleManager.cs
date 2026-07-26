@@ -43,10 +43,13 @@ public class BattleManager : MonoBehaviour
 
     public GameObject progressButton;
 
+    public GameObject gameOverScreen;
+    public GameObject victoryScreen;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
         //PrepareBattle();
         messageBox.gameObject.SetActive(false);
         ToggleButtonHidden(true);
@@ -242,13 +245,20 @@ public class BattleManager : MonoBehaviour
 
         if (!victory)
         {
+            gameOverScreen.SetActive(true);
             return;
         }
-
         DestroyEnemies();
 
-        wave++;
-        PlayerManager.Instance.OpenUnlockScreen();
+        if (wave >= 3)
+        {
+            victoryScreen.SetActive(true);
+        }    
+        else
+        {
+            wave++;
+            PlayerManager.Instance.OpenUnlockScreen();
+        }
     }  
 
     void DestroyEnemies()
