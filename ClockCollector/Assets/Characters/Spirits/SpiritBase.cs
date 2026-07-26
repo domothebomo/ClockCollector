@@ -494,6 +494,10 @@ public class SpiritBase : MonoBehaviour
 
             BattleManager.Instance.CheckEnemiesDefeated();
         }
+        else
+        {
+            BattleManager.Instance.CheckAlliesDefeated();
+        }
     }
 
     public bool IsDefeated() { return defeated; }

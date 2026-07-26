@@ -217,6 +217,19 @@ public class BattleManager : MonoBehaviour
         EndBattle(true);
     }
 
+    public void CheckAlliesDefeated()
+    {
+        foreach (GameObject enemy in allySpirits)
+        {
+            if (!enemy.GetComponent<SpiritBase>().IsDefeated())
+            {
+                return;
+            }
+        }
+
+        EndBattle(false);
+    }    
+
     public void EndBattle(bool victory)
     {
 

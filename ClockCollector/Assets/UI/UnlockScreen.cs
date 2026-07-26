@@ -20,7 +20,7 @@ public class UnlockScreen : MonoBehaviour
 
     List<int> usedIndices = new List<int>();
 
-    Animator animComp;
+    public Animator animComp;
 
     public GameObject actionChoice;
 
@@ -29,7 +29,7 @@ public class UnlockScreen : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        animComp = GetComponent<Animator>();
+        //animComp = GetComponent<Animator>();
 
         //ActivateScreen(UnlockChoice.Spirit, null);
     }
