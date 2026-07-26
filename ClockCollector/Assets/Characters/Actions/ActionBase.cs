@@ -11,6 +11,16 @@ public class ActionBase : MonoBehaviour
     bool cooldownActive = false;
 
     public bool requiresTarget = true;
+
+    public enum ActionType { Attack, Buff };
+    public enum TargetType { SingleTarget, AreaOfEffect}
+    public enum StatusEffect { Damage, Heal, Shield, Tank, Power}
+
+    public ActionType actionType;
+    public TargetType targetType;
+    public StatusEffect statusEffect;
+    public int triggers = 1;
+    public int potency;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public virtual void Start()
