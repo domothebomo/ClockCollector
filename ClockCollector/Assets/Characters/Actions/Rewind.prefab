@@ -45,6 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Rewind
   actionName: Rewind
-  actionDescription: 
+  actionDescription: Heal yourself!
   actionCooldown: 4
   requiresTarget: 0
