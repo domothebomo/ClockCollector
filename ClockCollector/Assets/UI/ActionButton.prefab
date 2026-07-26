@@ -288,6 +288,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ActionButton
   ownedSpirit: {fileID: 0}
   actionIndex: 0
+  action: {fileID: 0}
+  actionText: {fileID: 0}
+  unlockScreenComp: {fileID: 0}
 --- !u!61 &7864624395423869638
 BoxCollider2D:
   m_ObjectHideFlags: 0

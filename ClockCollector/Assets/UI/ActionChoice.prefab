@@ -256,6 +256,7 @@ GameObject:
   - component: {fileID: 1960360670037034970}
   - component: {fileID: 7496629128937567473}
   - component: {fileID: 7848998485182164569}
+  - component: {fileID: 126100706558802717}
   m_Layer: 0
   m_Name: ActionChoice
   m_TagString: Untagged
@@ -377,6 +378,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 126100706558802717}
+        m_TargetAssemblyTypeName: ButtonSFX, Assembly-CSharp
+        m_MethodName: Click
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7496629128937567473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -440,6 +453,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 220.52887, y: 49.199448}
   m_EdgeRadius: 0
+--- !u!114 &126100706558802717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6397694357939008976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5f39f0ecad34cc4b993fab16c6b138b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonSFX
 --- !u!1 &9154358468095652244
 GameObject:
   m_ObjectHideFlags: 0

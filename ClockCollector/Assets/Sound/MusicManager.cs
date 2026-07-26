@@ -7,6 +7,10 @@ public class MusicManager : MonoBehaviour
 
     [SerializeField] AudioSource menuTrack;
     [SerializeField] AudioSource battleTrack;
+    
+    [SerializeField] AudioSource selectSFX;
+    [SerializeField] float lowerPitchBound = 0.8f;
+    [SerializeField] float upperPitchBound = 1.2f;
 
     private void Awake()
     {
@@ -32,5 +36,11 @@ public class MusicManager : MonoBehaviour
     {
         battleTrack.Stop();
         menuTrack.UnPause();
+    }
+
+    public void SelectSFX()
+    {
+        selectSFX.pitch = Random.Range(lowerPitchBound, upperPitchBound);
+        selectSFX.Play();
     }
 }
