@@ -213,6 +213,8 @@ public class SpiritBase : MonoBehaviour
     {
         if (defeated) { return; }
 
+        ra.SelectSFX();
+
         if (recruitable)
         {
             ToggleUIHidden(false);

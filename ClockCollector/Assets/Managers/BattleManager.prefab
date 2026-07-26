@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5605445651141368675}
   - component: {fileID: 2116137029291376147}
   - component: {fileID: 1152224039290295863}
+  - component: {fileID: 1725556410301394284}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -133,6 +134,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1725556410301394284}
+        m_TargetAssemblyTypeName: ButtonSFX, Assembly-CSharp
+        m_MethodName: Click
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1725556410301394284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 821546013035858092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5f39f0ecad34cc4b993fab16c6b138b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonSFX
 --- !u!1 &1175618928216604734
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,6 +255,8 @@ MonoBehaviour:
   messageBox: {fileID: 5160659594350214203}
   messageTemplate: {fileID: 3735417394977415058, guid: 0fe7d4224a5d60c4ab89121489b75d33, type: 3}
   progressButton: {fileID: 821546013035858092}
+  gameOverScreen: {fileID: 0}
+  victoryScreen: {fileID: 0}
 --- !u!1 &6780295100795427150
 GameObject:
   m_ObjectHideFlags: 0
