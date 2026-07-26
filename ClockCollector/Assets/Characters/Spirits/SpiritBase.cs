@@ -62,6 +62,8 @@ public class SpiritBase : MonoBehaviour
     bool defeated = false;
 
     bool recruitable = false;
+
+    public bool initialTrigger = false;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -326,7 +328,9 @@ public class SpiritBase : MonoBehaviour
         currentCooldown = actionComp.actionCooldown;
         UpdateActionUI();
 
+        initialTrigger = true;
         abilityComp.ActionUseTrigger(actionComp.gameObject);
+        initialTrigger = false;
 
         if (abilityComp.modifiedCooldown != -1)
         {

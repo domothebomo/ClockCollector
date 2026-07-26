@@ -44,7 +44,7 @@ public class AttackAction : ActionBase
             }
             foreach (GameObject spirit in Spirits)
             {
-                spirit.GetComponent<SpiritBase>().abilityComp.DamagedTrigger(gameObject, damage);
+                spirit.GetComponent<SpiritBase>().abilityComp.DamagedTrigger(ownerComp.gameObject, damage);
                 spirit.GetComponent<SpiritBase>().TakeDamage(damage);
             }
 

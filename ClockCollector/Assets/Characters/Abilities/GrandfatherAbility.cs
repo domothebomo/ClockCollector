@@ -10,29 +10,31 @@ public class GrandfatherAbility : AbilityBase
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        //ownedSpirit.GetComponent<SpriteRenderer>().sprite = altSprite;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public override void ActionUseTrigger(GameObject action)
     {
         //modifiedCooldown = ownedSpirit.GetComponent<SpiritBase>().currentCooldown - 1;
 
-        if (action.GetComponent<ActionBase>().actionType == ActionBase.ActionType.Attack)
+        if (action.GetComponent<ActionBase>().actionType == ActionBase.ActionType.Attack && ownedSpirit.GetComponent<SpiritBase>().initialTrigger)
         {
             if (hits >= 3)
             {
                 hits = 0;
                 modifiedPotency = action.GetComponent<ActionBase>().potency * 3;
                 ownedSpirit.GetComponent<SpriteRenderer>().sprite = defaultSprite;
+
             }
             else
             {
+
                 hits++;
                 modifiedPotency = 0;
 
