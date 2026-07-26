@@ -86,7 +86,35 @@ public class PlayerManager : MonoBehaviour
 
             infoBox.SetActive(true);
             infoBoxTitle.text = actionComp.actionName;
-            infoBoxDescription.text = actionComp.actionDescription + "\nCooldown: " + actionComp.actionCooldown + " seconds";
+
+            string actionDescription = actionComp.actionDescription;
+
+            switch (actionComp.statusEffect)
+            {
+                case ActionBase.StatusEffect.Damage:
+                    actionDescription += "\n" + actionComp.triggers + "x" + actionComp.potency + " Damage";
+                    break;
+                case ActionBase.StatusEffect.Heal:
+                    actionDescription += "\n" + actionComp.triggers + "x" + actionComp.potency + " Healing";
+                    break;
+                case ActionBase.StatusEffect.Shield:
+                    actionDescription += "\n" + actionComp.triggers + "x" + actionComp.potency + " Shield";
+                    break;
+                case ActionBase.StatusEffect.Tank:
+                    actionDescription += "\n"+ actionComp.potency + " Block";
+                    break;
+                case ActionBase.StatusEffect.Power:
+                    actionDescription += "\n" + actionComp.potency + " Power";
+                    break;
+                default:
+                    break;
+                    
+            }
+
+            actionDescription += "\nCooldown: " + actionComp.actionCooldown + " seconds";
+            infoBoxDescription.text = actionDescription;
+
+            //infoBoxDescription.text = actionComp.actionDescription + "\nCooldown: " + actionComp.actionCooldown + " seconds";
             return;
         }
     }

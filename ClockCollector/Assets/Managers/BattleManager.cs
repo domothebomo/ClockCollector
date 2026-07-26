@@ -27,6 +27,9 @@ public class BattleManager : MonoBehaviour
     GameObject[] allySpirits;
     GameObject[] enemySpirits;
 
+    public GameObject[] spiritPool;
+    public GameObject[] actionPool;
+
     public CanvasGroup messageBox;
     public GameObject messageTemplate;
 
@@ -43,12 +46,17 @@ public class BattleManager : MonoBehaviour
         if (battleActive)
         {
             battleTimer += Time.deltaTime;
-            if (battleTimer >= 1.0)
+            if (battleTimer >= 1.2)
             {
                 TickDown();
                 battleTimer = 0.0f;
             }
         }
+    }
+    
+    void PrepareBattle()
+    {
+
     }
 
     void StartBattle()
@@ -105,6 +113,11 @@ public class BattleManager : MonoBehaviour
     public GameObject[] GetAllySpirits()
     {
         return allySpirits;
+    }
+
+    public GameObject[] GetEnemySpirits()
+    {
+        return enemySpirits;
     }
 
     public void CheckEnemiesDefeated()
