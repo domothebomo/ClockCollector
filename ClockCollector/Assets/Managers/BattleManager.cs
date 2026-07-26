@@ -10,6 +10,8 @@ public class BattleManager : MonoBehaviour
     
     public static BattleManager Instance {  get { return instance; } }
 
+    MusicManager mm;
+
     void Awake()
     {
         if (instance == null)
@@ -20,6 +22,8 @@ public class BattleManager : MonoBehaviour
         {
             Destroy(this);
         }
+
+        mm = FindAnyObjectByType<MusicManager>();
     }
 
     bool battleActive = false;
@@ -132,6 +136,8 @@ public class BattleManager : MonoBehaviour
 
     void StartBattle()
     {
+        mm.StartBattle();
+
         messageBox.gameObject.SetActive(true);
         battleActive = true;
 
@@ -235,6 +241,7 @@ public class BattleManager : MonoBehaviour
 
     public void EndBattle(bool victory)
     {
+        mm.StopBattle();
 
         ClearAllySelection(null);
         ClearEnemySelection(null);
