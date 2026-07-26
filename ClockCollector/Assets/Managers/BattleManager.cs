@@ -229,10 +229,25 @@ public class BattleManager : MonoBehaviour
 
         if (!victory)
         {
-
+            return;
         }
+
+        DestroyEnemies();
 
         wave++;
         PlayerManager.Instance.OpenUnlockScreen();
-    }    
+    }  
+
+    void DestroyEnemies()
+    {
+        foreach(GameObject enemy in enemySpirits)
+        {
+            Destroy(enemy);
+        }
+    }
+    
+    public bool IsBattleActive()
+    {
+        return battleActive;
+    }
 }

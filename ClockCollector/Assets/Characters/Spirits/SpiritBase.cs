@@ -217,6 +217,8 @@ public class SpiritBase : MonoBehaviour
             return;
         }
 
+        if (!BattleManager.Instance.IsBattleActive()) { return; }
+
         if (selected || targeted)
         {
             ClearSelection();
