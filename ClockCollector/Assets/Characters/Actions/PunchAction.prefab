@@ -44,5 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6988cd256b5c3484ca1a9113b42691a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PunchAction
-  actionName: Punch!
-  actionDescription: 
+  actionName: Toll the Unwound
+  actionDescription: Punch a target in the face!
+  actionCooldown: 2
+  requiresTarget: 1

@@ -12,7 +12,8 @@ public class SpiritBase : MonoBehaviour
     [SerializeField] int maxHealth = 100;
     int currentHealth;
 
-    [SerializeField] string displayName;
+    [SerializeField] public string displayName;
+    [SerializeField] public string abilityDescription;
 
     [SerializeField] GameObject[] startingActions;
     List<GameObject> knownActions = new List<GameObject>();
@@ -141,6 +142,11 @@ public class SpiritBase : MonoBehaviour
 
         newAction.gameObject.transform.parent = gameObject.transform;
         knownActions.Add(newAction);
+    }
+
+    public GameObject GetKnownAction(int actionIndex)
+    {
+        return knownActions[actionIndex];
     }
 
     public void SelectSpirit()
@@ -300,6 +306,8 @@ public class SpiritBase : MonoBehaviour
             {
                 PlayerManager.Instance.clearTarget();
             }
+
+            cooldownMeter.SetActive(false);
 
             BattleManager.Instance.CheckEnemiesDefeated();
         }

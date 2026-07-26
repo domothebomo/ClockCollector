@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 6381660731736309780}
   - component: {fileID: 8556742430082939689}
   m_Layer: 0
-  m_Name: SpiritBase
+  m_Name: CosmosClock
   m_TagString: AllySpirit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -159,9 +159,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b4235ca547a803419feee140b1e5102, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpiritBase
-  maxHealth: 100
-  displayName: Spirit
-  abilityDescription: A generic spirit. No outstanding qualities.
+  maxHealth: 300
+  displayName: Clock of all Cosmos
+  abilityDescription: ???
   startingActions: []
   actionButtons:
   - {fileID: 5795143749130618393}
