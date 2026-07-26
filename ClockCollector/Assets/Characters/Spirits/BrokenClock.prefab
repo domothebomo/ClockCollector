@@ -109,6 +109,10 @@ PrefabInstance:
       value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4433613116177186794, guid: 0c5fcffe6c94c16478cf922f9c23fd0c, type: 3}
+      propertyPath: abilityComp
+      value: 
+      objectReference: {fileID: 2458701267436562101}
+    - target: {fileID: 4433613116177186794, guid: 0c5fcffe6c94c16478cf922f9c23fd0c, type: 3}
       propertyPath: displayName
       value: Broken Clock
       objectReference: {fileID: 0}
@@ -152,8 +156,43 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -50.12
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -8759850024811645689, guid: 0c5fcffe6c94c16478cf922f9c23fd0c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5759285358740349040, guid: 0c5fcffe6c94c16478cf922f9c23fd0c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2458701267436562101}
   m_SourcePrefab: {fileID: 100100000, guid: 0c5fcffe6c94c16478cf922f9c23fd0c, type: 3}
+--- !u!212 &1116327178751711626 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1838350670959202152, guid: 0c5fcffe6c94c16478cf922f9c23fd0c, type: 3}
+  m_PrefabInstance: {fileID: 1657007550228584162}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6418693879915116178 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5759285358740349040, guid: 0c5fcffe6c94c16478cf922f9c23fd0c, type: 3}
+  m_PrefabInstance: {fileID: 1657007550228584162}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2458701267436562101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6418693879915116178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3772d58e3fadfd48ae82bf23991dba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BrokenAbility
+  ownedSpirit: {fileID: 6418693879915116178}
+  spriteComp: {fileID: 1116327178751711626}
+  modifiedCooldown: -1
+  modifiedPotency: -1
+  modifiedTriggers: -1
+  bypassShields: 0
+  splitActions: 0
+  altSprite: {fileID: -5145002557681046059, guid: a13f8dd4768a8f849a6e71304dd24989, type: 3}
+  defaultSprite: {fileID: -5145002557681046059, guid: 65e865e1842c3b449bf0149d053c1c63, type: 3}

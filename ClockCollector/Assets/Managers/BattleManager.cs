@@ -276,6 +276,8 @@ public class BattleManager : MonoBehaviour
         foreach(GameObject spirit in allySpirits)
         {
             spirit.GetComponent<SpiritBase>().HealDamage(1000);
+            spirit.GetComponent<SpiritBase>().SetBlock(0);
+            spirit.GetComponent<SpiritBase>().SetPower(0);
         }
     }
 

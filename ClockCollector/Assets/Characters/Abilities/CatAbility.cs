@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RolexAbility : AbilityBase
+public class CatAbility : AbilityBase
 {
 
     
@@ -20,13 +20,14 @@ public class RolexAbility : AbilityBase
     {
         //modifiedCooldown = ownedSpirit.GetComponent<SpiritBase>().currentCooldown - 1;
 
-        if (action.GetComponent<ActionBase>().actionCooldown >= 6 && action.GetComponent<ActionBase>().actionType == ActionBase.ActionType.Buff)
+        if (action.GetComponent<ActionBase>().actionType == ActionBase.ActionType.Attack)
         {
-            modifiedPotency = (int)(action.GetComponent<ActionBase>().potency * 1.5);
+            modifiedTriggers = (action.GetComponent<ActionBase>().triggers * 2);
+            modifiedCooldown = ownedSpirit.GetComponent<SpiritBase>().currentCooldown * 2;
         }
         else
         {
-            modifiedPotency = -1;
+            modifiedTriggers = -1;
         }
 
     }
@@ -41,7 +42,7 @@ public class RolexAbility : AbilityBase
         base.ReceiveHealthTrigger();
     }
 
-
+ 
 
     public override void ReceiveShieldTrigger()
     {

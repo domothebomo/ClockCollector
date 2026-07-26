@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RolexAbility : AbilityBase
+public class SmartAbility : AbilityBase
 {
 
     
@@ -18,17 +18,19 @@ public class RolexAbility : AbilityBase
 
     public override void ActionUseTrigger(GameObject action)
     {
-        //modifiedCooldown = ownedSpirit.GetComponent<SpiritBase>().currentCooldown - 1;
-
-        if (action.GetComponent<ActionBase>().actionCooldown >= 6 && action.GetComponent<ActionBase>().actionType == ActionBase.ActionType.Buff)
+        GameObject[] spirits;
+        if (ownedSpirit.CompareTag("EnemySpirit"))
         {
-            modifiedPotency = (int)(action.GetComponent<ActionBase>().potency * 1.5);
+            spirits = BattleManager.Instance.GetAllySpirits();
         }
         else
         {
-            modifiedPotency = -1;
+            spirits = BattleManager.Instance.GetEnemySpirits();
         }
-
+        foreach (GameObject spirit in spirits)
+        {
+            spirit.GetComponent<SpiritBase>().currentCooldown = spirit.GetComponent<SpiritBase>().currentCooldown - 0.5f;
+        }
     }
 
     public override void TimeTrigger(GameObject action)
@@ -41,7 +43,7 @@ public class RolexAbility : AbilityBase
         base.ReceiveHealthTrigger();
     }
 
-
+ 
 
     public override void ReceiveShieldTrigger()
     {

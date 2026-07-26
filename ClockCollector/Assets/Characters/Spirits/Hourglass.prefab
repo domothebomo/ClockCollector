@@ -109,6 +109,10 @@ PrefabInstance:
       value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4433613116177186794, guid: 0c5fcffe6c94c16478cf922f9c23fd0c, type: 3}
+      propertyPath: abilityComp
+      value: 
+      objectReference: {fileID: 1193486088222827493}
+    - target: {fileID: 4433613116177186794, guid: 0c5fcffe6c94c16478cf922f9c23fd0c, type: 3}
       propertyPath: displayName
       value: Hourglass
       objectReference: {fileID: 0}
@@ -157,3 +161,14 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c5fcffe6c94c16478cf922f9c23fd0c, type: 3}
+--- !u!114 &1193486088222827493 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -8759850024811645689, guid: 0c5fcffe6c94c16478cf922f9c23fd0c, type: 3}
+  m_PrefabInstance: {fileID: 1657007550228584162}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd3f85ffcd3a3d34083d8c448c7f059c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AbilityBase

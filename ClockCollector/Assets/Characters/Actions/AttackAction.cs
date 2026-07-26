@@ -28,6 +28,7 @@ public class AttackAction : ActionBase
         if (targetType == TargetType.SingleTarget && !ownerComp.abilityComp.splitActions)
         {
             SpiritBase targetComponent = Target.GetComponent<SpiritBase>();
+            targetComponent.abilityComp.DamagedTrigger(gameObject, damage);
             targetComponent.TakeDamage(damage);
         }
         else
@@ -43,6 +44,7 @@ public class AttackAction : ActionBase
             }
             foreach (GameObject spirit in Spirits)
             {
+                spirit.GetComponent<SpiritBase>().abilityComp.DamagedTrigger(gameObject, damage);
                 spirit.GetComponent<SpiritBase>().TakeDamage(damage);
             }
 

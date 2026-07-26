@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RolexAbility : AbilityBase
+public class GymAbility : AbilityBase
 {
 
     
@@ -18,17 +18,14 @@ public class RolexAbility : AbilityBase
 
     public override void ActionUseTrigger(GameObject action)
     {
-        //modifiedCooldown = ownedSpirit.GetComponent<SpiritBase>().currentCooldown - 1;
-
-        if (action.GetComponent<ActionBase>().actionCooldown >= 6 && action.GetComponent<ActionBase>().actionType == ActionBase.ActionType.Buff)
+        if (ownedSpirit.GetComponent<SpiritBase>().GetBlockStacks() > 0 && action.GetComponent<ActionBase>().statusEffect == ActionBase.StatusEffect.Shield)
         {
-            modifiedPotency = (int)(action.GetComponent<ActionBase>().potency * 1.5);
+            modifiedPotency = (int) (action.GetComponent<ActionBase>().potency * 1.5);
         }
         else
         {
             modifiedPotency = -1;
         }
-
     }
 
     public override void TimeTrigger(GameObject action)

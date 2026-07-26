@@ -336,7 +336,11 @@ public class SpiritBase : MonoBehaviour
             triggers = abilityComp.modifiedTriggers;
         }
 
-        GameObject finalTarget = DetermineTarget(actionComp, target);
+        GameObject finalTarget = target;
+        if (!abilityComp.bypassShields)
+        {
+            finalTarget = DetermineTarget(actionComp, target);
+        }
 
         for (int i = 0; i < triggers; i++)
         {
@@ -478,9 +482,19 @@ public class SpiritBase : MonoBehaviour
         return powerStacks;
     }
 
+    public void SetPower(int power)
+    {
+        powerStacks = power;
+    }
+
     public int GetBlockStacks()
     {
         return blockStacks;
+    }
+
+    public void SetBlock(int block)
+    {
+        blockStacks = block;
     }
 
     public void EnableRecruiting()

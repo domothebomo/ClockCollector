@@ -35,10 +35,7 @@ public class SundialAbility : AbilityBase
         base.ReceiveHealthTrigger();
     }
 
-    public override void DamagedTrigger(GameObject attacker)
-    {
-        base.DamagedTrigger(attacker);
-    }
+
 
     public override void ReceiveShieldTrigger()
     {

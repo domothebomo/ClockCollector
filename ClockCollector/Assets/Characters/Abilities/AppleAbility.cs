@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RolexAbility : AbilityBase
+public class AppleAbility : AbilityBase
 {
 
     
@@ -18,9 +18,7 @@ public class RolexAbility : AbilityBase
 
     public override void ActionUseTrigger(GameObject action)
     {
-        //modifiedCooldown = ownedSpirit.GetComponent<SpiritBase>().currentCooldown - 1;
-
-        if (action.GetComponent<ActionBase>().actionCooldown >= 6 && action.GetComponent<ActionBase>().actionType == ActionBase.ActionType.Buff)
+        if (action.GetComponent<ActionBase>().statusEffect == ActionBase.StatusEffect.Heal && action.GetComponent<ActionBase>().targetType == ActionBase.TargetType.AreaOfEffect)
         {
             modifiedPotency = (int)(action.GetComponent<ActionBase>().potency * 1.5);
         }
@@ -28,7 +26,6 @@ public class RolexAbility : AbilityBase
         {
             modifiedPotency = -1;
         }
-
     }
 
     public override void TimeTrigger(GameObject action)

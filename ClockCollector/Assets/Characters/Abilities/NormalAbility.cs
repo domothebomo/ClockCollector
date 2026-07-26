@@ -33,10 +33,7 @@ public class NormalAbility : AbilityBase
         base.ReceiveHealthTrigger();
     }
 
-    public override void DamagedTrigger(GameObject attacker)
-    {
-        base.DamagedTrigger(attacker);
-    }
+
 
     public override void ReceiveShieldTrigger()
     {

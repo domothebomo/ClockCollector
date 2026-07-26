@@ -109,6 +109,10 @@ PrefabInstance:
       value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4433613116177186794, guid: 0c5fcffe6c94c16478cf922f9c23fd0c, type: 3}
+      propertyPath: abilityComp
+      value: 
+      objectReference: {fileID: 1504765505202190528}
+    - target: {fileID: 4433613116177186794, guid: 0c5fcffe6c94c16478cf922f9c23fd0c, type: 3}
       propertyPath: displayName
       value: Smart Watch
       objectReference: {fileID: 0}
@@ -152,8 +156,36 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -36.41
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -8759850024811645689, guid: 0c5fcffe6c94c16478cf922f9c23fd0c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5759285358740349040, guid: 0c5fcffe6c94c16478cf922f9c23fd0c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1504765505202190528}
   m_SourcePrefab: {fileID: 100100000, guid: 0c5fcffe6c94c16478cf922f9c23fd0c, type: 3}
+--- !u!1 &6418693879915116178 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5759285358740349040, guid: 0c5fcffe6c94c16478cf922f9c23fd0c, type: 3}
+  m_PrefabInstance: {fileID: 1657007550228584162}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1504765505202190528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6418693879915116178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 212ff803b7dbc334289e33119106cb00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SmartAbility
+  ownedSpirit: {fileID: 6418693879915116178}
+  spriteComp: {fileID: 0}
+  modifiedCooldown: -1
+  modifiedPotency: -1
+  modifiedTriggers: -1
+  bypassShields: 0
+  splitActions: 0

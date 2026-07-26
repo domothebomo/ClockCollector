@@ -1,9 +1,12 @@
 using UnityEngine;
 
-public class RolexAbility : AbilityBase
+public class GrandfatherAbility : AbilityBase
 {
+    public Sprite altSprite;
+    public Sprite defaultSprite;
 
-    
+    int hits = 0;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,9 +23,24 @@ public class RolexAbility : AbilityBase
     {
         //modifiedCooldown = ownedSpirit.GetComponent<SpiritBase>().currentCooldown - 1;
 
-        if (action.GetComponent<ActionBase>().actionCooldown >= 6 && action.GetComponent<ActionBase>().actionType == ActionBase.ActionType.Buff)
+        if (action.GetComponent<ActionBase>().actionType == ActionBase.ActionType.Attack)
         {
-            modifiedPotency = (int)(action.GetComponent<ActionBase>().potency * 1.5);
+            if (hits >= 3)
+            {
+                hits = 0;
+                modifiedPotency = action.GetComponent<ActionBase>().potency * 3;
+                ownedSpirit.GetComponent<SpriteRenderer>().sprite = defaultSprite;
+            }
+            else
+            {
+                hits++;
+                modifiedPotency = 0;
+
+                if (hits >= 3)
+                {
+                    ownedSpirit.GetComponent<SpriteRenderer>().sprite = altSprite;
+                }
+            }
         }
         else
         {
@@ -41,7 +59,7 @@ public class RolexAbility : AbilityBase
         base.ReceiveHealthTrigger();
     }
 
-
+ 
 
     public override void ReceiveShieldTrigger()
     {

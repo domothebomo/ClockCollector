@@ -6,10 +6,10 @@ public class AbilityBase : MonoBehaviour
     public SpriteRenderer spriteComp;
 
     //public int modifiedDamage;
-    public float modifiedCooldown;
+    public float modifiedCooldown = -1;
     //public int modifiedShield;
-    public int modifiedPotency;
-    public int modifiedTriggers;
+    public int modifiedPotency = -1;
+    public int modifiedTriggers = -1;
 
     public bool bypassShields = false;
     public bool splitActions = false;
@@ -44,7 +44,7 @@ public class AbilityBase : MonoBehaviour
 
     }
 
-    public virtual void DamagedTrigger(GameObject attacker)
+    public virtual void DamagedTrigger(GameObject attacker, int damage)
     {
 
     }

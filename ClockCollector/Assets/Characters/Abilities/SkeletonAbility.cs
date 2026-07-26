@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RolexAbility : AbilityBase
+public class SkeletonAbility : AbilityBase
 {
 
     
@@ -18,17 +18,6 @@ public class RolexAbility : AbilityBase
 
     public override void ActionUseTrigger(GameObject action)
     {
-        //modifiedCooldown = ownedSpirit.GetComponent<SpiritBase>().currentCooldown - 1;
-
-        if (action.GetComponent<ActionBase>().actionCooldown >= 6 && action.GetComponent<ActionBase>().actionType == ActionBase.ActionType.Buff)
-        {
-            modifiedPotency = (int)(action.GetComponent<ActionBase>().potency * 1.5);
-        }
-        else
-        {
-            modifiedPotency = -1;
-        }
-
     }
 
     public override void TimeTrigger(GameObject action)
@@ -41,6 +30,10 @@ public class RolexAbility : AbilityBase
         base.ReceiveHealthTrigger();
     }
 
+    public override void DamagedTrigger(GameObject attacker, int damage)
+    {
+        attacker.GetComponent<SpiritBase>().TakeDamage(damage);
+    }
 
 
     public override void ReceiveShieldTrigger()
